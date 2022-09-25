@@ -24,7 +24,6 @@ const More = () => {
     window.open(url);
   };
 
-  // console.log(url);
   return (
     <>
       <div>
