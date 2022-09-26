@@ -1,25 +1,20 @@
 import React from "react";
-import More from "../components/More";
-import Intro from "../components/Intro";
-import Project from "../components/Project";
 import { Link } from "react-scroll";
-import { useState } from "react";
 
 import styled from "styled-components";
 const HeadWrap = styled.div`
   position: fixed;
   display: flex;
+  justify-content: space-around;
   width: 100%;
-  padding: 5vh 100vw;
+  height: 13vh;
   background: white;
   z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
 `;
 
-const Bg = styled.div`
-  background: #f2f2f2;
-  width: 100vw;
-  z-index; 2;
-`;
 const Title = styled.span`
   font-size: 4vh;
   font-family: "SUIT", sans-serif;
@@ -28,30 +23,23 @@ const Title = styled.span`
   left: 5vh;
   top: 2vh;
 `;
-const Menu1 = styled.span`
+const MenuWrap = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 40vw;
+  height: 100px;
+  position: relative;
+  left: 17vw;
+`;
+const Menu = styled.p`
   font-size: 2.5vh;
   font-family: "SUIT", sans-serif;
   font-weight: 600;
-  position: absolute;
-  top: 3vh;
-  left: 70vw;
+  &:hover {
+    cursor: pointer;
+  }
 `;
-const Menu2 = styled.span`
-  font-size: 2.5vh;
-  font-family: "SUIT", sans-serif;
-  font-weight: 600;
-  position: absolute;
-  top: 3vh;
-  left: 80vw;
-`;
-const Menu3 = styled.span`
-  font-size: 2.5vh;
-  font-family: "SUIT", sans-serif;
-  font-weight: 600;
-  position: absolute;
-  top: 3vh;
-  left: 90vw;
-`;
+
 const Line = styled.hr`
   position: absolute;
   width: 100vw;
@@ -115,12 +103,18 @@ const Sites = styled.div`
 const SiteImg = styled.img`
   width: 20vw;
   border: 1px solid black;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 const Text5 = styled.p`
   font-size: 2.5vh;
   font-weight: 400;
   font-family: "SUIT", sans-serif;
   text-align: left;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 const MoreWrap = styled.div`
   display: flex;
@@ -177,97 +171,103 @@ const Home = () => {
     <>
       <HeadWrap>
         <Title>INNERSTELLA</Title>
-        <Link to="intro" smooth={true} duration={500}>
-          <Menu1>소개</Menu1>
-        </Link>
-        <Link to="project" smooth={true} duration={500}>
-          <Menu2>프로젝트</Menu2>
-        </Link>
-        <Link to="more" smooth={true} duration={500}>
-          <Menu3>더보기</Menu3>
-        </Link>
+        <MenuWrap>
+          <Menu>
+            <Link to="intro" smooth={true} duration={500}>
+              소개
+            </Link>
+          </Menu>
+
+          <Menu>
+            <Link to="project" smooth={true} duration={500}>
+              프로젝트
+            </Link>
+          </Menu>
+          <Link to="more" smooth={true} duration={500}>
+            <Menu>더보기</Menu>
+          </Link>
+        </MenuWrap>
       </HeadWrap>
       <Line />
 
-      <Bg>
-        <Wrapper>
-          <div name="intro">
-            <center>
-              <ProfilePic alt="profile" src="img/profile.png" />
-              <Text1>Learn by Doing</Text1>
-              <Text2>
-                모두가 즐겁고 편리한 일상을 보낼 수 있는 서비스를 직접 만들며
-              </Text2>
-              <Text2>공부하고 배우는 FE 개발자입니다.</Text2>
-            </center>
+      <Wrapper>
+        <div name="intro">
+          <center>
+            <ProfilePic alt="profile" src="img/profile.png" />
+            <Text1>Learn by Doing</Text1>
+            <Text2>
+              모두가 즐겁고 편리한 일상을 보낼 수 있는 서비스를 직접 만들며
+            </Text2>
+            <Text2>공부하고 배우는 FE 개발자입니다.</Text2>
+          </center>
 
-            <br />
-            <br />
-            <center>
-              <Stack>
-                <Text3>HTML</Text3>
-                <Text3>CSS</Text3>
-                <Text3>JavaScript</Text3>
-                <Text3>React</Text3>
-                <Text3>Flutter</Text3>
-              </Stack>
-            </center>
-          </div>
+          <br />
+          <br />
+          <center>
+            <Stack>
+              <Text3>HTML</Text3>
+              <Text3>CSS</Text3>
+              <Text3>JavaScript</Text3>
+              <Text3>React</Text3>
+              <Text3>Flutter</Text3>
+            </Stack>
+          </center>
+        </div>
 
-          <div name="project">
-            <br />
-            <br />
-            <br />
-            <br />
+        <div name="project">
+          <br />
+          <br />
+          <br />
+          <br />
 
-            <Text4>Project</Text4>
-            <br />
+          <Text4>Project</Text4>
+          <br />
 
-            <Sites>
-              <SiteImg
-                onClick={onClickImg}
-                alt="hotpot"
-                src="/img/hotpot.jpg"
-              ></SiteImg>
-              <SiteImg
-                onClick={onClickImg}
-                alt="michelin"
-                src="/img/michelin.jpg"
-              ></SiteImg>
-              <SiteImg
-                onClick={onClickImg}
-                alt="water"
-                src="/img/water.jpg"
-              ></SiteImg>
-            </Sites>
-          </div>
+          <Sites>
+            <SiteImg
+              onClick={onClickImg}
+              alt="hotpot"
+              src="/img/hotpot.jpg"
+            ></SiteImg>
+            <SiteImg
+              onClick={onClickImg}
+              alt="michelin"
+              src="/img/michelin.jpg"
+            ></SiteImg>
+            <SiteImg
+              onClick={onClickImg}
+              alt="water"
+              src="/img/water.jpg"
+            ></SiteImg>
+          </Sites>
+        </div>
 
-          <div name="more">
-            <br />
-            <br />
-            <br />
-            <br />
+        <div name="more">
+          <br />
+          <br />
+          <br />
+          <br />
 
-            <MoreWrap>
-              <Col>
-                <Text4>연락</Text4>
-                <Text5>inner0509@gmail.com</Text5>
-                <Text5 onClick={onClick}>링크드인</Text5>
-              </Col>
-              <Col>
-                <Text4>기록</Text4>
-                <Text5 onClick={onClick} name="github">
-                  깃허브
-                </Text5>
-                <Text5 onClick={onClick} name="tistory">
-                  티스토리
-                </Text5>
-              </Col>
-            </MoreWrap>
-          </div>
-          <Text6>&copy; 2022 INNERSTELLA</Text6>
-        </Wrapper>
-      </Bg>
+          <MoreWrap>
+            <Col>
+              <Text4>연락</Text4>
+              <Text5>inner0509@gmail.com</Text5>
+              <Text5 onClick={onClick}>링크드인</Text5>
+            </Col>
+            <Col>
+              <Text4>기록</Text4>
+              <Text5 onClick={onClick} name="github">
+                깃허브
+              </Text5>
+              <Text5 onClick={onClick} name="tistory">
+                티스토리
+              </Text5>
+            </Col>
+          </MoreWrap>
+        </div>
+        <br />
+        <Text6>&copy; 2022 INNERSTELLA</Text6>
+      </Wrapper>
     </>
   );
 };
